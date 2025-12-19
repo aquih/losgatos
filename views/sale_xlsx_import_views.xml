@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_losgatos_xlsx_import_wizard" model="ir.ui.view">
+        <field name="name">losgatos.xlsx.import.wizard.form</field>
+        <field name="model">losgatos.xlsx.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Importar Ventas XLSX">
+                <group>
+                    <field name="file_data" filename="file_name"/>
+                    <field name="file_name" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="action_import"
+                            type="object"
+                            string="Importar"
+                            class="btn-primary"/>
+                    <button string="Cancelar"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sale_xlsx_import" model="ir.actions.act_window">
+        <field name="name">Importar Ventas XLSX</field>
+        <field name="res_model">losgatos.xlsx.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_losgatos_root"
+              name="Los Gatos"
+              parent="account.menu_finance"/>
+
+    <menuitem id="menu_losgatos_import"
+              name="Importar Ventas XLSX"
+              parent="menu_losgatos_root"
+              action="action_sale_xlsx_import"/>
+</odoo>
