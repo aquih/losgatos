@@ -29,12 +29,8 @@
         <field name="target">new</field>
     </record>
 
-    <menuitem id="menu_losgatos_root"
-              name="Los Gatos"
-              parent="account.menu_finance"/>
-
     <menuitem id="menu_losgatos_import"
               name="Importar Ventas XLSX"
-              parent="menu_losgatos_root"
+              parent="account.menu_finance_receivables"
               action="action_sale_xlsx_import"/>
 </odoo>

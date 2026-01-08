@@ -2,12 +2,13 @@
 {
     "name": "Los Gatos",
     "version": "18.0.1.0.0",
+    "author": "aquíH",
     "category": "Accounting",
     "summary": "Importa ventas desde XLSX, crea facturas y las paga automáticamente",
-    "depends": ["account", "product"],
+    "depends": ["account", "sale", "stock", "product"],
     "data": [
         "security/ir.model.access.csv",
-        "views/sale_xlsx_import_views.xml",
+        "views/losgatos_xlsx_import_views.xml",
     ],
     "installable": True,
     "license": "LGPL-3",
