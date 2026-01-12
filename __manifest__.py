@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Los Gatos",
-    "version": "18.0.1.0.0",
+    "version": "1.2",
     "author": "aquíH",
     "category": "Accounting",
     "summary": "Importa ventas desde XLSX, crea facturas y las paga automáticamente",
