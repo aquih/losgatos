@@ -60,6 +60,7 @@ class LosgatosXlsxImportWizard(models.TransientModel):
                 uuid_pos_fel = first[2].value
                 numero_fel = first[3].value
                 serie_fel = first[4].value
+                warehouse_name = first[8].value
                 state = first[7].value
                 if isinstance(invoice_date, datetime):
                     invoice_date = invoice_date.date()
@@ -73,7 +74,9 @@ class LosgatosXlsxImportWizard(models.TransientModel):
                 partner = self.env["res.partner"].search(
                     [("vat", "=", vat)], limit=1
                 )
-
+                warehouse_id = self.env["stock.warehouse"].search(
+                    [("name","=", warehouse_name)])
+                
                 if not partner:
                     partner = self.env["res.partner"].create({
                         "name": partner_name,
@@ -147,6 +150,7 @@ class LosgatosXlsxImportWizard(models.TransientModel):
                     "date_order": order_datetime,
                     "client_order_ref": uuid,
                     "order_line": order_lines,
+                    "warehouse_id": warehouse_id.id,
                 })
 
                 # Confirmar SO
